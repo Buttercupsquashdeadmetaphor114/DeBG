@@ -52,32 +52,46 @@ Models are downloaded automatically on first use and cached locally (`%AppData%\
 
 ## Requirements
 
+**To run a release:**
 - Windows 10 / 11 (x64)
-- Python 3.11 – 3.13 (auto-downloaded if not found)
+- Python 3.11 – 3.13 (auto-downloaded by the setup wizard if not found)
 - GPU backend additionally requires an NVIDIA GPU with CUDA 11.8+
+
+**To build from source:**
+- Node.js 18+
+- Git
+- Windows 10 / 11 (x64)
 
 ---
 
 ## Running a release
 
-1. Download `DeBG-portable-0.2.0.exe` from [Releases](../../releases) **or** copy the entire `win-unpacked/` folder to your machine
-2. Run the exe — a first-run setup wizard opens
+1. Download `DeBG-portable-0.2.0.exe` from [Releases](../../releases) **or** extract `DeBG-win-unpacked-0.2.0.zip`
+2. Run the exe — a first-run setup wizard opens automatically
 3. Choose CPU or GPU backend and click **Install rembg** (~5–10 min first time)
 4. Drop images, pick a model, click **Remove backgrounds**
+
+> Python and rembg are handled entirely by the wizard — no manual setup needed.
 
 ---
 
 ## Running from source
 
+The setup wizard runs automatically on first launch and handles Python + rembg for you.
+
 ```bash
+git clone https://github.com/usmannazir95/DeBG.git
+cd DeBG
 npm install
 
-# React dev server only (no Electron)
+# React only (no Electron, no AI — for UI dev)
 npm run dev
 
-# Full Electron app in dev mode
+# Full Electron app in dev mode (recommended)
 npm run dev:electron
 ```
+
+On first run of `npm run dev:electron` the setup wizard will open, detect or download Python, create a venv, and install rembg — exactly the same as a release build. After that the app is fully functional.
 
 ---
 
