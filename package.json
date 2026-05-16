@@ -1,0 +1,56 @@
+{
+  "name": "debg",
+  "productName": "DeBG",
+  "version": "0.2.0",
+  "description": "Remove image backgrounds locally — no uploads, no API keys, no cloud.",
+  "author": "usmannazir95",
+  "license": "MIT",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "dev:electron": "concurrently -k -n VITE,ELECTRON \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "build": "vite build",
+    "dist": "npm run build && electron-builder --win",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "file-saver": "^2.0.5",
+    "jszip": "^3.10.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.3",
+    "concurrently": "^9.1.0",
+    "cross-env": "^7.0.3",
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8",
+    "vite": "^5.4.10",
+    "wait-on": "^8.0.1"
+  },
+  "build": {
+    "appId": "com.debg.desktop",
+    "productName": "DeBG",
+    "copyright": "Copyright © 2026 usmannazir95",
+    "icon": "assets/icon",
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        { "target": "portable", "arch": ["x64"] },
+        { "target": "dir",      "arch": ["x64"] }
+      ]
+    },
+    "portable": {
+      "artifactName": "${productName}-portable-${version}.exe"
+    }
+  }
+}

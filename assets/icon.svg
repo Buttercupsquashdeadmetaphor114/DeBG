@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Checkerboard — "transparent / no background" -->
+    <pattern id="cb" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+      <rect width="36" height="36" fill="#141927"/>
+      <rect x="0"  y="0"  width="18" height="18" fill="#1c2840"/>
+      <rect x="18" y="18" width="18" height="18" fill="#1c2840"/>
+    </pattern>
+
+    <!-- Indigo gradient for the "BG" outline stroke -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#a5b4fc"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+
+    <!-- Clip everything to the rounded-square icon shape -->
+    <clipPath id="iconClip">
+      <rect width="512" height="512" rx="112"/>
+    </clipPath>
+
+    <!-- Mask: cuts the "BG" letter shapes out of a white rect,
+         so we can punch checkerboard through those shapes -->
+    <mask id="bgHoles">
+      <rect width="512" height="512" fill="white"/>
+      <!-- These are the same text/path as the BG glyphs below -->
+      <text
+        x="256" y="390"
+        text-anchor="middle"
+        font-family="'Segoe UI Black','Arial Black',Impact,sans-serif"
+        font-weight="900"
+        font-size="228"
+        letter-spacing="-6"
+        fill="black"
+      >BG</text>
+    </mask>
+  </defs>
+
+  <g clip-path="url(#iconClip)">
+
+    <!-- 1. Solid dark base -->
+    <rect width="512" height="512" fill="#0b0d12"/>
+
+    <!-- 2. Checkerboard fills the whole canvas (will be visible through "BG" holes) -->
+    <rect width="512" height="512" fill="url(#cb)"/>
+
+    <!-- 3. Solid dark panel covers the checkerboard EXCEPT inside the BG letter shapes.
+         mask="url(#bgHoles)" punches the letter shapes out so checker shows through. -->
+    <rect width="512" height="512" fill="#0b0d12" mask="url(#bgHoles)"/>
+
+    <!-- 4. "De" — solid white, sits above the BG line -->
+    <text
+      x="256" y="198"
+      text-anchor="middle"
+      font-family="'Segoe UI Black','Arial Black',Impact,sans-serif"
+      font-weight="900"
+      font-size="168"
+      letter-spacing="-4"
+      fill="#f1f5ff"
+    >De</text>
+
+    <!-- 5. "BG" — hollow outline only; the gradient stroke gives it color,
+         the interior is transparent so the checker from step 2 shows through. -->
+    <text
+      x="256" y="390"
+      text-anchor="middle"
+      font-family="'Segoe UI Black','Arial Black',Impact,sans-serif"
+      font-weight="900"
+      font-size="228"
+      letter-spacing="-6"
+      fill="none"
+      stroke="url(#bgGrad)"
+      stroke-width="9"
+      paint-order="stroke"
+    >BG</text>
+
+    <!-- 6. Hairline border -->
+    <rect width="512" height="512" rx="112"
+      fill="none" stroke="white" stroke-width="2" stroke-opacity="0.07"/>
+
+  </g>
+</svg>
