@@ -12,7 +12,10 @@
 
 ---
 
-Powered by [danielgatis/rembg](https://github.com/danielgatis/rembg) running as a local inference server. Everything stays on your machine.
+**DeBG** is a Windows desktop background remover — drop images in, get transparent PNGs out.  
+Powered by [danielgatis/rembg](https://github.com/danielgatis/rembg) running as a local AI inference server. Everything stays on your machine — no internet required after first-time model download.
+
+> **Keywords:** background remover · remove background from image · transparent PNG · AI background removal · image background eraser · photo background remover · offline background removal · bulk background remover · Windows background remover app
 
 ---
 
